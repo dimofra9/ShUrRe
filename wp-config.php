@@ -16,19 +16,19 @@
 
 // ** Ajustes de MySQL. Solicita estos datos a tu proveedor de alojamiento web. ** //
 /** El nombre de tu base de datos de WordPress */
-define('DB_NAME', 'nombredetubasededatos');
+define('DB_NAME', 'shurre_db');
 
 /** Tu nombre de usuario de MySQL */
-define('DB_USER', 'nombredeusuario');
+define('DB_USER', 'dimofra9');
 
 /** Tu contraseña de MySQL */
-define('DB_PASSWORD', 'contraseña');
+define('DB_PASSWORD', '*damf12345*');
 
 /** Host de MySQL (es muy probable que no necesites cambiarlo) */
 define('DB_HOST', 'localhost');
 
 /** Codificación de caracteres para la base de datos. */
-define('DB_CHARSET', 'utf8');
+define('DB_CHARSET', 'utf8mb4');
 
 /** Cotejamiento de la base de datos. No lo modifiques si tienes dudas. */
 define('DB_COLLATE', '');
@@ -42,14 +42,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY', 'pon aquí tu frase aleatoria'); // Cambia esto por tu frase aleatoria.
-define('SECURE_AUTH_KEY', 'pon aquí tu frase aleatoria'); // Cambia esto por tu frase aleatoria.
-define('LOGGED_IN_KEY', 'pon aquí tu frase aleatoria'); // Cambia esto por tu frase aleatoria.
-define('NONCE_KEY', 'pon aquí tu frase aleatoria'); // Cambia esto por tu frase aleatoria.
-define('AUTH_SALT', 'pon aquí tu frase aleatoria'); // Cambia esto por tu frase aleatoria.
-define('SECURE_AUTH_SALT', 'pon aquí tu frase aleatoria'); // Cambia esto por tu frase aleatoria.
-define('LOGGED_IN_SALT', 'pon aquí tu frase aleatoria'); // Cambia esto por tu frase aleatoria.
-define('NONCE_SALT', 'pon aquí tu frase aleatoria'); // Cambia esto por tu frase aleatoria.
+define('AUTH_KEY', 'x[+MFr<_[ajx{$sx$@#WX3fup~#RP%*%N__bU{/MfT^w&Wm!Pc;M_`[Mz4a:Zw>y');
+define('SECURE_AUTH_KEY', ',xuq]6FBu4%#K4quPOJ.4Q=>kV8d{K|+t9hO`q-{VP+*z-8,Zq1-%AVmH{%%cH[N');
+define('LOGGED_IN_KEY', 'Uk/|o)[YQ2<9v}/q ?W)2bt&tbd/[G/~@)QD~o}fHp%P0Ubitk#;K3UIxyXz$7<j');
+define('NONCE_KEY', '3$ZF9BhVY$H9)>Q4l=|oFa{.N@W0_ipvdkza,P{ggG9;tW2)I`G=8Sk$_SV YO0Y');
+define('AUTH_SALT', 'Ez{VVtZTo2tc0WE+}_}WZ/I2~3@@eW{ $Id)La[`P*c,RHD2DbI`o&V!C*$b&WLy');
+define('SECURE_AUTH_SALT', 'Q0=mkKmSXgrDQMyN17u)bQ(O;V0r*U<cx?B-7=2?Dt&M<8fV:*^JR:o<]e`N`9mM');
+define('LOGGED_IN_SALT', 'lj%D&SCd}9iVG>:D+$q~F`&#d>x^*F4*#)$<NA2IA(.[dECt/5?Fl~p@pK)35Nk(');
+define('NONCE_SALT', '{_b^:Sm{ZYecDDD_!%N`;V#-]hcZH;z[u/[O]@| A&aBzC|3]>&7 ,-l*($ld!.L');
 
 /**#@-*/
 
