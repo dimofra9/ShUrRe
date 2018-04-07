@@ -12,29 +12,32 @@
  * @package ShUrRe
  */
 
-get_header();
-?>
+get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<div class="content-container container">
+    <div class="section">
 
+      <div class="row">
+        <div id="primary" class="col l8 s12">
 		<?php
-		while ( have_posts() ) :
-			the_post();
+			while ( have_posts() ) : the_post();
 
-			get_template_part( 'template-parts/content', 'page' );
+				get_template_part( 'content/content', 'page' );
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+				// If comments are open or we have at least one comment, load up the comment template.
+				if ( comments_open() || get_comments_number() ) :
+					comments_template();
+				endif;
 
-		endwhile; // End of the loop.
-		?>
+			endwhile; // End of the loop.
+			?>
+		</div>
+		<div id="secondary" class="col l4 s12">
+			<?php get_sidebar( 'page' ); ?>
+		</div>
+      </div>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php
-get_sidebar();
-get_footer();
+    </div>
+</div>
+  
+<?php get_footer();
