@@ -22,58 +22,54 @@ if ( post_password_required() ) {
 
 <div id="comments" class="comments-area">
 
-	<?php if ( have_comments() ) : ?>
+	<?php
+	// You can start editing here -- including this comment!
+	if ( have_comments() ) :
+		?>
 		<h2 class="comments-title">
 			<?php
-				$comments_number = get_comments_number();
-				if ( 1 === $comments_number ) {
-					/* translators: %s: post title */
-					printf( esc_attr_x( 'One thought on &ldquo;%s&rdquo;', 'comments title', 'elemate' ), get_the_title() );
-				} else {
-					printf(
-						/* translators: 1: number of comments, 2: post title */
-						esc_attr( _nx(
-							'%1$s thought on &ldquo;%2$s&rdquo;',
-							'%1$s thoughts on &ldquo;%2$s&rdquo;',
-							$comments_number,
-							'comments title',
-							'elemate'
-						) ),
-						number_format_i18n( $comments_number ),
-						get_the_title()
-					);
-				}
+			$shurre_comment_count = get_comments_number();
+			if ( '1' === $shurre_comment_count ) {
+				printf(
+					/* translators: 1: title. */
+					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'shurre' ),
+					'<span>' . get_the_title() . '</span>'
+				);
+			} else {
+				printf( // WPCS: XSS OK.
+					/* translators: 1: comment count number, 2: title. */
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $shurre_comment_count, 'comments title', 'shurre' ) ),
+					number_format_i18n( $shurre_comment_count ),
+					'<span>' . get_the_title() . '</span>'
+				);
+			}
 			?>
-		</h2>
+		</h2><!-- .comments-title -->
 
 		<?php the_comments_navigation(); ?>
 
 		<ol class="comment-list">
 			<?php
-				wp_list_comments( array(
-					'style'       => 'ol',
-					'short_ping'  => true,
-					'avatar_size' => 42,
-				) );
+			wp_list_comments( array(
+				'style'      => 'ol',
+				'short_ping' => true,
+			) );
 			?>
 		</ol><!-- .comment-list -->
 
-		<?php the_comments_navigation(); ?>
+		<?php
+		the_comments_navigation();
 
-	<?php endif; // Check for have_comments(). ?>
-
-	<?php
 		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-	?>
-		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'elemate' ); ?></p>
-	<?php endif; ?>
+		if ( ! comments_open() ) :
+			?>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'shurre' ); ?></p>
+			<?php
+		endif;
 
-	<?php
-		comment_form( array(
-			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
-			'title_reply_after'  => '</h2>',
-		) );
+	endif; // Check for have_comments().
+
+	comment_form();
 	?>
 
-</div><!-- .comments-area -->
+</div><!-- #comments -->

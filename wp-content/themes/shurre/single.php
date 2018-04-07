@@ -7,37 +7,31 @@
  * @package ShUrRe
  */
 
-get_header(); ?>
+get_header();
+?>
 
-<div class="container">
-    <div class="section">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main">
 
-      <div class="row">
-        <div id="primary" class="col l8 s12">
 		<?php
-				while ( have_posts() ) : the_post();
+		while ( have_posts() ) :
+			the_post();
 
-					get_template_part( 'content/content', get_post_format() );
-				
-					the_post_navigation( array(
-						'prev_text' => '<span class="nav-subtitle">' . __( 'Previous Post', 'elemate' ) . '</span> <span class="nav-title">%title</span>',
-						'next_text' => '<span class="nav-subtitle">' . __( 'Next Post', 'elemate' ) . '</span> <span class="nav-title">%title</span>',
-					) );
-					
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) {
-						comments_template();
-					}
+			get_template_part( 'template-parts/content', get_post_type() );
 
-				endwhile; // End of the loop.
-				?>
-		</div>
-		<div id="secondary" class="col l4 s12">
-		    <?php get_sidebar(); ?>
-		</div>
-      </div>
+			the_post_navigation();
 
-    </div>
-</div>
-  
-<?php get_footer();
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+
+		endwhile; // End of the loop.
+		?>
+
+		</main><!-- #main -->
+	</div><!-- #primary -->
+
+<?php
+get_sidebar();
+get_footer();
