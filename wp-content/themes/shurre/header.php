@@ -17,42 +17,46 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
+	<!--Importar Materialize-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">    
+	
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'shurre' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$shurre_description = get_bloginfo( 'description', 'display' );
-			if ( $shurre_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $shurre_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'shurre' ); ?></button>
-			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+<div class="row">
+	<!--navegacion lateral-->
+	<div class="col s2">
+		<a class="center" href="<?php echo esc_url( home_url( '/' ) ); ?>"><h3 class="blue-text"><?php bloginfo( 'name' ); ?></h3></a>
+		<a class="center" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php the_custom_logo(); ?></a>
+		<h4 class="center blue-text" ><?php bloginfo( 'description' ); ?></h4>
+		<!--engresan widgets-->
+		<?php get_search_form (); ?>
+		<?php get_sidebar(); ?> 
+	</div>		       
+	<!--barra de navegación-->
+	<div class="col s10" >
+		<header>
+			<nav>
+				<div class="nav-wrapper">
+					<ul class="left hide-on-med-and-down">
+						<li class="menu-toggle left hide-on-med-and-down" aria-controls="primary-menu" aria-expanded="false">
+						<?php esc_html_e( 'Primary Menu', 'shurre' ); ?>
+						</li>
+					</ul>
+					
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					) );
+					?>
+				</div>
+			</nav><!-- #site-navigation -->
+		</header><!-- #masthead -->
+	</div>
 
 	<div id="content" class="site-content">
+		

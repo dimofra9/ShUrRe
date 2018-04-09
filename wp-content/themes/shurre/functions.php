@@ -120,10 +120,13 @@ add_action( 'widgets_init', 'shurre_widgets_init' );
  * Enqueue scripts and styles.
  */
 function shurre_scripts() {
-	wp_enqueue_style( 'shurre-style', get_stylesheet_uri() );
+	
+	wp_enqueue_style( 'shurre-main', get_template_directory_uri() . '/css/styles.css', array(), '1.0' );	
+	wp_enqueue_style( 'shurre-style', get_stylesheet_uri() ); // Placed here for better child theme support.
+	
+	wp_enqueue_script( 'shurre-init', get_template_directory_uri() . '/js/init.js', array( 'jquery', 'shurre-script' ), '20151215', true );
 
 	wp_enqueue_script( 'shurre-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'shurre-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
