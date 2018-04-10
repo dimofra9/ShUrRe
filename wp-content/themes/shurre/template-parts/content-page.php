@@ -37,7 +37,7 @@
 						__( 'Edit <span class="screen-reader-text">%s</span>', 'shurre' ),
 						array(
 							'span' => array(
-								'class' => array(),
+							'class' => array(),
 							),
 						)
 					),
